@@ -11,7 +11,6 @@ const msp = (state, ownProps) => {
     {
       stock: state.entities.stocks[ownProps.match.params.stock_id],
       currentUser: state.entities.users[state.session.id],
-      watchlist: state.entities.watchlist,
       data: state.entities.data,
       search: state.ui.search,
       query: state.ui.query,
@@ -27,11 +26,6 @@ const mdp = dispatch => (
     clearSearch: () => dispatch(clearSearch()),
     clearData: ()=> dispatch(clearData()),
     logout: () => dispatch(logout()),
-    doneLoading: () => dispatch(doneLoading()),
-    needsLoading: () => dispatch(needsLoading()),
-    addToWatchlist: (watchlistJoin) => dispatch(addToWatchlist(watchlistJoin)),
-    removeFromWatchlist: (watchlistJoin) => dispatch(removeFromWatchlist(watchlistJoin)),
-
   }
 );
 
