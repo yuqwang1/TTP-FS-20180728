@@ -12,24 +12,17 @@ class UserShowPage extends React.Component{
   }
 
   componentDidMount(){
-    this.props.findAllShares(this.props.currentUser.id).then(
-      response=>   {if (this.props.watchlist.length > 0){
+    this.props.findAllShares(this.props.currentUser.id);
           const shareIds = Object.keys(this.props.shares);
           const shareArr = [];
           for (var i = 0; i < shareIds.length; i++) {
             const shareId = parseInt(shareIds[i]);
-            if (!this.props.watchlist.includes(shareId)){
               shareArr.push(shareId);
             }
-          }
           const allIds = shareArr.concat(this.props.watchlist);
           this.props.altFetchStocks(allIds);
-        }else{
-          this.props.doneLoading();
         }
-      }
-    );
-  }
+  
 
   componentDidUpdate(oldprops){
     if (this.props.match.params !== oldprops.match.params){
