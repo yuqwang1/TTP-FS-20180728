@@ -12,7 +12,6 @@ class UserShowPage extends React.Component{
   }
 
   componentDidMount(){
-    this.props.needsLoading();
     this.props.findAllShares(this.props.currentUser.id).then(
       response=>   {if (this.props.watchlist.length > 0){
           const shareIds = Object.keys(this.props.shares);
@@ -34,7 +33,6 @@ class UserShowPage extends React.Component{
 
   componentDidUpdate(oldprops){
     if (this.props.match.params !== oldprops.match.params){
-      this.props.needsLoading();
       this.props.findAllShares(this.props.currentUser.id).then(
         response=>   {if (this.props.watchlist.length > 0){
             const shareIds = Object.keys(this.props.shares);

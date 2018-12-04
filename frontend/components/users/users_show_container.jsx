@@ -22,11 +22,10 @@ const msp = state => {
 
 const mdp = dispatch => (
   {
-    
+
     logout: () => dispatch(logout()),
     doneLoading: () => dispatch(doneLoading()),
     altFetchStocks: (watchlist) => dispatch(altFetchStocks(watchlist)),
-    needsLoading: () => dispatch(needsLoading()),
     clearData: ()=> dispatch(clearData()),
     altFetchStocksData: (syms) => dispatch(altFetchStocksData(syms)),
     findAllShares: (id) => dispatch(findAllShares(id))
