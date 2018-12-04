@@ -22,15 +22,11 @@ class StockShowPage extends React.Component{
   componentDidUpdate(oldprops){
     if (this.props.match.params !== oldprops.match.params){
       this.props.fetchStock(this.props.match.params.stock_id);
-      this.props.clearSearch();
-      this.props.clearData();
     }
   }
 
   componentWillUnmount(){
     clearInterval(this.interval1);
-    this.props.clearSearch();
-    this.props.clearData();
   }
 
   round(number, places){
