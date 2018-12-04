@@ -22,12 +22,11 @@ class UserShowPage extends React.Component{
           const allIds = shareArr.concat(this.props.watchlist);
           this.props.altFetchStocks(allIds);
         }
-  
+
 
   componentDidUpdate(oldprops){
     if (this.props.match.params !== oldprops.match.params){
-      this.props.findAllShares(this.props.currentUser.id).then(
-        response=>   {if (this.props.watchlist.length > 0){
+      this.props.findAllShares(this.props.currentUser.id)
             const shareIds = Object.keys(this.props.shares);
             const shareArr = [];
             for (var i = 0; i < shareIds.length; i++) {
@@ -38,13 +37,11 @@ class UserShowPage extends React.Component{
             }
             const allIds = shareArr.concat(this.props.watchlist);
             this.props.altFetchStocks(allIds);
-          }else{
-            this.props.doneLoading();
-          }
+
         }
-      );
+
     }
-  }
+
 
   round(number, places){
     return +(Math.round(number + "e+" + places)  + "e-" + places);
@@ -57,7 +54,7 @@ class UserShowPage extends React.Component{
         <Loading />
       )
     }
-    let watchlistitems;
+
     let graphClass;
     let sharelist, ownedShares,  stockslist, shareheader;
           let shareworth = 0.0;
