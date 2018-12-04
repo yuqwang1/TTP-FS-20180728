@@ -24,23 +24,7 @@ class UserShowPage extends React.Component{
         }
 
 
-  componentDidUpdate(oldprops){
-    if (this.props.match.params !== oldprops.match.params){
-      this.props.findAllShares(this.props.currentUser.id)
-            const shareIds = Object.keys(this.props.shares);
-            const shareArr = [];
-            for (var i = 0; i < shareIds.length; i++) {
-              const shareId = parseInt(shareIds[i]);
-              if (!this.props.watchlist.includes(shareId)){
-                shareArr.push(shareId);
-              }
-            }
-            const allIds = shareArr.concat(this.props.watchlist);
-            this.props.altFetchStocks(allIds);
 
-        }
-
-    }
 
 
   round(number, places){
@@ -79,11 +63,6 @@ class UserShowPage extends React.Component{
          ownedShares = shareArr.map((stockId)=>{
            if (stockslist[stockId] && stockslist[stockId].USD){
              price = "$" +this.round(stockslist[stockId].USD.PRICE,5).toString();
-             if (stockslist[stockId].USD.CHANGEPCT24HOUR > 0){
-               graphClass = "watchlist-graph-up";
-             }else{
-               graphClass = "watchlist-graph-down"
-             }
            }
            if (stockslist[stockId]){
              return(
