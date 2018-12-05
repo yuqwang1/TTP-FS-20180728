@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import StockShow from './stock_show';
 import {fetchStock, fetchPrice} from '../../actions/stocks_actions';
-import {logout} from '../../actions/session_actions';
 
 const msp = (state, ownProps) => {
   return (
@@ -19,7 +18,6 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => (
   {
     fetchStock: id => dispatch(fetchStock(id)),
-    logout: () => dispatch(logout()),
   }
 );
 
