@@ -34,7 +34,7 @@ class StockShowPage extends React.Component{
   }
 
   render(){
-    if (!this.props.stock || !this.props.data || !document.getElementById("gradient")){
+    if (!this.props.stock || !this.props.data){
       return (
         <Loading />
       )
@@ -47,9 +47,9 @@ class StockShowPage extends React.Component{
       let button;
 
       if (this.props.data[this.state.timescale]){
-        const monthData = this.props.data[this.state.timescale];
-        pctChange = monthData[monthData.length-1].pctchange.toFixed(2);
-        initialChange = this.round(monthData[monthData.length-1].change,8);
+        const dailyData = this.props.data[this.state.timescale];
+        pctChange = dailyData[dailyData.length-1].pctchange.toFixed(2);
+        initialChange = this.round(dailyData[dailyData.length-1].change,8);
 
         if (initialChange < 0){
           initialChange = `-$${initialChange.toString().slice(1)} (${pctChange}%)`;
@@ -58,7 +58,7 @@ class StockShowPage extends React.Component{
         }
 
         initialChange = initialChange
-        initialPrice = "$" + monthData[monthData.length-1].close;
+        initialPrice = "$" + dailyData[dailyData.length-1].close;
       }else{
         initialPrice = "Loading";
         change="Loading";
@@ -68,7 +68,6 @@ class StockShowPage extends React.Component{
       }
       return (
         <div>
-          <div id="gradient"></div>
           <NavbarContainer/>
             <Link to="/stocks"></Link>
               <h1 id="stockLabel">{this.props.stock.name}</h1>

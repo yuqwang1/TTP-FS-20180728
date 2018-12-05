@@ -11,8 +11,6 @@ class Loading extends React.Component{
   render(){
     return(
       <div>
-          <div id="gradient">
-          </div>
         <NavbarContainer/>
           <div>
             <h1>LOADING</h1>
