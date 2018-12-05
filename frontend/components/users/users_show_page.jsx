@@ -40,7 +40,6 @@ class UserShowPage extends React.Component{
     }
 
     let sharelist, ownedShares,  stockslist, shareheader;
-          let shareworth = 0.0;
     const shareArr = Object.keys(this.props.shares);
     if (this.props.watchlist){
       let stock, price, symbol;
@@ -49,16 +48,9 @@ class UserShowPage extends React.Component{
           shareheader = (
             <li>Shares</li>
           )
-          let stockslist = this.props.stocks;
+          stockslist = this.props.stocks;
           sharelist = this.props.shares;
-          for (var i = 0; i < Object.keys(sharelist).length; i++) {
-            const stockId = Object.keys(sharelist)[i];
-            const shareAmount = sharelist[stockId];
-            const stock = this.props.stocks[stockId];
-            if (stock && stock.USD && stock.USD.PRICE*shareAmount){
-              shareworth += this.props.stocks[stockId].USD.PRICE*shareAmount;
-            }
-          }
+
          ownedShares = shareArr.map((stockId)=>{
            if (stockslist[stockId] && stockslist[stockId].USD){
              price = "$" +this.round(stockslist[stockId].USD.PRICE,5).toString();
