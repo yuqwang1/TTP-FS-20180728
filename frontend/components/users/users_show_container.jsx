@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import UserShowPage from './users_show_page';
 import {logout} from '../../actions/session_actions';
-import {watchlistDataFetch, clearData, altFetchStocks} from '../../actions/stocks_actions';
+import {clearData, altFetchStocks} from '../../actions/stocks_actions';
 import {findAllShares} from '../../actions/transaction_actions';
 
 const msp = state => {

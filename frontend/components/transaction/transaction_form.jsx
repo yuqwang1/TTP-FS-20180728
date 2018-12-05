@@ -36,7 +36,7 @@ class TransactionForm extends React.Component{
       if (this.props.currentUser.funds > transaction.amount*transaction.price){
         this.props.addTransaction(transaction,this.props.currentUser);
       }
-    
+
     this.setState({
       user_id: this.props.currentUser.id,
       stock_id: this.props.stock.id,
@@ -60,14 +60,12 @@ class TransactionForm extends React.Component{
 
   render(){
     let price, shares;
-    let buttonval;
     if (this.props.data.daily){
       price = this.props.data.daily[this.props.data.daily.length-1].close;
     }else{
       price = "loading";
     }
     if (this.state.sell === false){
-      buttonval = "Buy";
       shares = (
         <h2>${this.round(this.props.currentUser.funds,4)} Cash Available</h2>
       )
@@ -82,7 +80,7 @@ class TransactionForm extends React.Component{
             <h2>{price}</h2>
             <h2>Estimated Cost:</h2>
             <h2> {this.state.cost}</h2>
-          <input type="submit" value={buttonval}></input>
+          <input type="submit" value='Buy'></input>
             {shares}
           </form>
         )

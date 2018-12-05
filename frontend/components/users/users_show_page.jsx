@@ -39,7 +39,6 @@ class UserShowPage extends React.Component{
       )
     }
 
-    let graphClass;
     let sharelist, ownedShares,  stockslist, shareheader;
           let shareworth = 0.0;
     const shareArr = Object.keys(this.props.shares);
