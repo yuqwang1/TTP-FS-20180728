@@ -6,7 +6,6 @@ import {RECEIVE_STOCK,
         CLEAR_DATA,
         RECEIVE_WATCHLIST_DATA,
         RECEIVE_ALT_STOCKS_DATA,
-        RECEIVE_SORTED_STOCKS
         } from '../actions/stocks_actions';
 import {merge} from 'lodash';
 
@@ -56,8 +55,6 @@ const StocksReducer = (state = {}, action) => {
         return newState;
       case RECEIVE_ALT_STOCKS_DATA:
         return action.data;
-      case RECEIVE_SORTED_STOCKS:
-        return action.stocks;
       default:
         return state;
     }

@@ -1,6 +1,5 @@
 import * as StocksApiUtil from '../util/stocks_api_util';
 import {doneLoading} from './ui_actions';
-
 export const RECEIVE_STOCKS = "RECEIVE_STOCKS";
 export const RECEIVE_STOCK = "RECEIVE_STOCK";
 export const RECEIVE_PRICE = "RECEIVE_PRICE";
@@ -13,15 +12,8 @@ export const CLEAR_SEARCH = "CLEAR_SEARCH";
 export const CLEAR_DATA = "CLEAR_DATA";
 export const RECEIVE_WATCHLIST_DATA = "RECEIVE_WATCHLIST_DATA";
 export const RECEIVE_ALT_STOCKS_DATA = "RECEIVE_ALT_STOCKS_DATA";
-export const RECEIVE_SORTED_STOCKS = "RECEIVE_SORTED_STOCKS";
 
 
-export const receiveSortedStocks = (stocks) => {
-  return({
-    type: RECEIVE_SORTED_STOCKS,
-    stocks
-  })
-}
 
 export const receiveWatchlistData = (obj,ids) => {
 
